@@ -1,0 +1,19 @@
+RewriteEngine On
+
+#allow robots.txt
+RewriteRule robots.txt$ robots.txt [NC,L]
+
+#if folder not "public", den rewrite to index.php
+RewriteRule !^(public)/(.*)$ index.php [NC,L]
+
+# All folder to index.php
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.*)$ index.php [NC,L,QSA]
+
+#all existing files stream to browser
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l
+RewriteRule ^.*$ - [NC,L]
+
+#other zu index.php
+RewriteRule ^(.*)$ index.php [NC,L,QSA]

@@ -1,0 +1,16 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #CCC;
+    margin: 0; padding: 0;
+}
+
+.clearfix::after,
+.container::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}

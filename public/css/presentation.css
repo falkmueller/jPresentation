@@ -1,0 +1,110 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+/*page ###################################################################*/
+.page_wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: #ccc;
+    overflow: hidden;
+}
+
+.page {
+    width: 960px; 
+    height: 700px; 
+    left: 50%; 
+    top: 50%; 
+    bottom: auto; 
+    right: auto;
+    
+    position: absolute;
+    perspective: 600px;
+    perspective-origin: 50% 40%;
+
+    transform: translate(-50%, -50%);
+}
+
+/*Sections ###################################################################*/
+.page > section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    z-index: 2;    
+}
+
+.page > section.slide_current {
+    z-index: 5;
+}
+
+.page > section.slide_next {
+    z-index: 4;
+}
+
+.page > section.slide_last {
+    z-index: 3;
+}
+
+.page > section.slide_out {
+    z-index: 6;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 1s, opacity 1s linear;
+}
+
+/*bar ########################################################################*/
+
+.slide_bar {
+    position: absolute;
+    height: 40px;
+    background-color: rgba(200,200,200,0.8);
+    padding: 5px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 10;
+}
+
+.slide_bar .bt {
+    display: block;
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    background-color: #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.slide_bar .span_numbers {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 5px;
+}
+
+.slide_bar .bt_prev {
+    background-image: url(../images/prev.svg);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 3px 5px;
+}
+
+.slide_bar .bt_next {
+    background-image: url(../images/next.svg);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 8px 5px;
+}
+
+.slide_bar .bt_full {
+    background-image: url(../images/full.svg);
+    background-repeat: no-repeat;
+    background-size: 26px 26px;
+    background-position: 2px 2px;
+}
+
+
