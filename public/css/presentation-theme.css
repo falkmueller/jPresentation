@@ -1,6 +1,11 @@
-.slide {
+.page_wrapper {
+    background-color: #ccc;
+}
+
+.page .slide {
     font-size: 24px;
     overflow: hidden;
+    background-color: #FFF;
 }
 
 .slide .page_id {

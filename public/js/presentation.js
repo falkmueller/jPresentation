@@ -130,7 +130,8 @@ var presentation_slides = function(){
         translation: function(last, current, next){
             current.classList.add("slide_out");
             setTimeout(function(){current.classList.remove("slide_out");}, 1000);
-        }
+        },
+        enaleMouseWheel: true
     }
     
     /*private variables*/
@@ -238,13 +239,15 @@ var presentation_slides = function(){
     
     var init_events = function(){
         //scrollWheel
-        lastMouseWheelStep = 0;
-        if (me.wrapper.addEventListener) {
-            me.wrapper.addEventListener( 'DOMMouseScroll', onDocumentMouseScroll, false ); // Firefox
-            me.wrapper.addEventListener( 'mousewheel', onDocumentMouseScroll, false ); // IE9, Chrome, Safari, Opera
-        }
-        else {
-            me.wrapper.attachEvent("onmousewheel", onDocumentMouseScroll); // IE 6/7/8
+        if (me.options.enaleMouseWheel){
+            lastMouseWheelStep = 0;
+            if (me.wrapper.addEventListener) {
+                me.wrapper.addEventListener( 'DOMMouseScroll', onDocumentMouseScroll, false ); // Firefox
+                me.wrapper.addEventListener( 'mousewheel', onDocumentMouseScroll, false ); // IE9, Chrome, Safari, Opera
+            }
+            else {
+                me.wrapper.attachEvent("onmousewheel", onDocumentMouseScroll); // IE 6/7/8
+            }
         }
         
         //touch events

@@ -1,7 +1,6 @@
 html, body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 
 /*page ###################################################################*/
@@ -9,7 +8,6 @@ html, body {
     height: 100%;
     width: 100%;
     position: relative;
-    background-color: #ccc;
     overflow: hidden;
 }
 
@@ -29,27 +27,27 @@ html, body {
 }
 
 /*Sections ###################################################################*/
-.page > section {
+.page .slide {
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 2; 
     background-color: #FFF;
-    z-index: 2;    
 }
 
-.page > section.slide_current {
+.page .slide.slide_current {
     z-index: 5;
 }
 
-.page > section.slide_next {
+.page .slide.slide_next {
     z-index: 4;
 }
 
-.page > section.slide_last {
+.page .slide.slide_last {
     z-index: 3;
 }
 
-.page > section.slide_out {
+.page .slide.slide_out {
     z-index: 6;
     visibility: hidden;
     opacity: 0;
