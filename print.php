@@ -12,15 +12,7 @@
 
     <div class="page_wrapper">
         <div class="page">
-            <section style="background-color: red">
-                section 1
-            </section>
-            <section style="background-color: yellow">
-                section 2
-            </section>
-            <section style="background-color: green">
-                section 3
-            </section>
+            <?php require_once BASEDIR.'/slides.php' ?>
         </div>
     </div>
   </body>
@@ -32,10 +24,10 @@ ob_end_clean();
 
 //echo $html; exit();
 
-require_once BASEDIR.'/dompdf/autoload.inc.php';
+require_once BASEDIR.'/vendor/dompdf/autoload.inc.php';
 $options = array("enable_remote" => true, "enable_html5_parser" => true);
 $dompdf = new Dompdf\Dompdf($options);
 $dompdf->loadHtml($html);
-$dompdf->setPaper('A4', 'portrait');
+$dompdf->setPaper(array(0,0,960,700));
 $dompdf->render();
 $dompdf->stream();

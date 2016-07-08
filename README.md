@@ -8,6 +8,7 @@
 
 ## TODOS
 
-- domPDF export
-- slides aus md-Files laden
 - slides stylen
+- pdf test
+- events hinzufügen
+- "nicht optionen" aus options entfernen

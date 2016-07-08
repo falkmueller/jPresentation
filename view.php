@@ -21,15 +21,7 @@
 
     <div class="page_wrapper">
         <div class="page">
-            <section style="background-color: red">
-                section 1
-            </section>
-            <section style="background-color: yellow">
-                section 2
-            </section>
-            <section style="background-color: green">
-                section 3
-            </section>
+            <?php require_once BASEDIR.'/slides.php' ?>
         </div>
     </div>
       

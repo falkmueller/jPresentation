@@ -1,9 +1,12 @@
+@page { margin: 0px; }
+
 body, .page_wrapper {
     background-color: #fff;
+    margin: 0px;
 }
 
 .page > section {
     width: 960px; 
     height: 700px;
-    transform: translate(-130px, 0) scale(0.7);
+    transform: scale(1.7);
 }
