@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     
     <link href="<?php echo BASEURL ?>/public/css/presentation.css" rel="stylesheet">
+    <link href="<?php echo BASEURL ?>/public/css/presentation-theme.css" rel="stylesheet">
     <link href="<?php echo BASEURL ?>/public/css/style.css" rel="stylesheet">
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

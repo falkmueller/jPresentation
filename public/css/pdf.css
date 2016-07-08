@@ -1,0 +1,9 @@
+body, .page_wrapper {
+    background-color: #fff;
+}
+
+.page > section {
+    width: 960px; 
+    height: 700px;
+    transform: translate(-130px, 0) scale(0.7);
+}

@@ -18,4 +18,9 @@ if(!$path){$path = "index";}
 /*Load Slides*/
 
 /*Load view*/
-require_once BASEDIR.'/view.php';
+if($path == "print"){
+    require_once BASEDIR.'/print.php';
+} else {
+    require_once BASEDIR.'/view.php';
+}
+
