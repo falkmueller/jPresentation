@@ -29,17 +29,10 @@
       <script type="text/javascript">
           var p_screen = new presentation_screen();
           p_screen.on("init_end", function(){console.log("init_end");});
-          p_screen.on("layout_start", function(){console.log("layout_start");});
-          p_screen.on("layout_end", function(){console.log("layout_end");});
           p_screen.init();
           
           var p_slides = new presentation_slides();
           p_slides.init();
-          
-//          setInterval(function(){
-//              p_slides.next();
-//          },2000)
-          
       </script>
   </body>
 </html>

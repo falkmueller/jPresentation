@@ -22,12 +22,13 @@
 $html = ob_get_contents();
 ob_end_clean();
 
-//echo $html; exit();
+//$html; exit();
 
+$factor = 0.75;
 require_once BASEDIR.'/vendor/dompdf/autoload.inc.php';
 $options = array("enable_remote" => true, "enable_html5_parser" => true);
 $dompdf = new Dompdf\Dompdf($options);
 $dompdf->loadHtml($html);
-$dompdf->setPaper(array(0,0,960,700));
+$dompdf->setPaper(array(0,0,960 * $factor,700 * $factor));
 $dompdf->render();
 $dompdf->stream();

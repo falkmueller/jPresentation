@@ -8,5 +8,11 @@ body, .page_wrapper {
 .page > section {
     width: 960px; 
     height: 700px;
-    transform: scale(1.7);
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+}
+
+.slide .page_id {
+    display: none;
 }
