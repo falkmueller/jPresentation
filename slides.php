@@ -102,6 +102,7 @@ foreach ($files as $file){
     
     $number = current(explode("_", $file));
     $name = substr(substr($file, strlen($number) + 1),0,-3);
+    $name = current(explode("~", $name));
     
     $number_split = explode(".",$number);
     $number = "";
