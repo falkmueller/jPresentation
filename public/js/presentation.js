@@ -131,20 +131,22 @@ var presentation_slides = function(){
             current.classList.add("slide_out");
             setTimeout(function(){current.classList.remove("slide_out");}, 1000);
         },
-        enaleMouseWheel: true
+        enableMouseWheel: true,
+        enableTouch: true,
+        enableKeyBoard: true
     }
     
     /*private variables*/
     var touch = { start: 0, end: 0};
     var lastMouseWheelStep = 0;
     var hashTagIntervall = null;
+    var bar = null;
+    var number_block = null;
     
     /*public variables*/
     me.in_translation = false;
     me.wrapper = null;
     me.slides = null;
-    me.bar = null;
-    me.number_block = null;
     me.last_slide_index = 0;
     me.current_slide_index = 0;
     
@@ -186,36 +188,36 @@ var presentation_slides = function(){
     }
   
     var init_bar = function(){
-        if(me.bar){
-            me.bar.parentNode.removeChild(me.bar);
+        if(bar){
+            bar.parentNode.removeChild(bar);
         }
         
-        me.bar = document.createElement('div');
-        me.bar.classList.add(me.options.classes.bar);
+        bar = document.createElement('div');
+        bar.classList.add(me.options.classes.bar);
          
         var bt_prev = document.createElement('div');
         bt_prev.classList.add(me.options.classes.bt);
         bt_prev.classList.add(me.options.classes.bt_prev);
-        me.bar.appendChild(bt_prev);
+        bar.appendChild(bt_prev);
         
 
         var bt_next = document.createElement('span');
         bt_next.classList.add(me.options.classes.bt);
         bt_next.classList.add(me.options.classes.bt_next);
-        me.bar.appendChild(bt_next);
+        bar.appendChild(bt_next);
         
         if(me.options.fullscreenEnabled){
             var bt_full = document.createElement('span');
             bt_full.classList.add(me.options.classes.bt);
             bt_full.classList.add(me.options.classes.bt_full);
-            me.bar.appendChild(bt_full);
+            bar.appendChild(bt_full);
             
         }
         
         
-        me.number_block = document.createElement('span');
-        me.number_block.classList.add(me.options.classes.numbers);
-        me.bar.appendChild(me.number_block);
+        number_block = document.createElement('span');
+        number_block.classList.add(me.options.classes.numbers);
+        bar.appendChild(number_block);
         
         setPageNumber();
         
@@ -233,13 +235,15 @@ var presentation_slides = function(){
             }
         }
         
-        me.wrapper.appendChild(me.bar);
+        me.wrapper.appendChild(bar);
+        
+        me.fire("init_bar_end", bar);
         
     }
     
     var init_events = function(){
         //scrollWheel
-        if (me.options.enaleMouseWheel){
+        if (me.options.enableMouseWheel){
             lastMouseWheelStep = 0;
             if (me.wrapper.addEventListener) {
                 me.wrapper.addEventListener( 'DOMMouseScroll', onDocumentMouseScroll, false ); // Firefox
@@ -251,12 +255,16 @@ var presentation_slides = function(){
         }
         
         //touch events
-        me.wrapper.addEventListener( 'touchstart', onTouchStart, false );
-        me.wrapper.addEventListener( 'touchmove', onTouchMove, false );
-        me.wrapper.addEventListener( 'touchend', onTouchEnd, false );
+        if (me.options.enableTouch){
+            me.wrapper.addEventListener( 'touchstart', onTouchStart, false );
+            me.wrapper.addEventListener( 'touchmove', onTouchMove, false );
+            me.wrapper.addEventListener( 'touchend', onTouchEnd, false );
+        }
         
         //keyboard events
-        document.addEventListener( 'keydown', onDocumentKeyPress, false );
+        if (me.options.enableKeyBoard){
+            document.addEventListener( 'keydown', onDocumentKeyPress, false );
+        }
     }
     
     var onDocumentKeyPress = function(event){
@@ -310,9 +318,9 @@ var presentation_slides = function(){
         t = t.replace("[current]", me.current_slide_index + 1);
         t = t.replace("[count]", me.slides.length);
         
-        me.number_block.innerHTML = t;
+        number_block.innerHTML = t;
         
-        me.fire("setPageNumber_end");
+        me.fire("setPageNumber_end", number_block);
     }
     
      me.next = function(){
