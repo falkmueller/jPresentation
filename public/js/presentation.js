@@ -287,10 +287,10 @@ var presentation_slides = function(){
     var onTouchEnd = function(event){
         touch_diff = touch.end - touch.start;
         
-        if(touch_diff > 50){
+        if(touch_diff < -50){
             me.next();
         } 
-        else if (touch_diff < -50){
+        else if (touch_diff > 50){
             me.prev();
         } 
         
